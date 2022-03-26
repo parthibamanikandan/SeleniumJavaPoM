@@ -1,0 +1,8 @@
+<suite name="Test Automation">
+       <test thread-count="5" name="Test1">
+        <classes>
+            <class name="test.java.test.GoogleSearchPageTest"/>
+        </classes>
+    </test>
+
+</suite>
