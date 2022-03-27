@@ -7,11 +7,13 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 import test.java.config.PropertiesFile;
 import test.java.pages.HomePage;
+import test.java.pages.ResultsPage;
 
 public class GoogleSearchPageTest {
 
@@ -47,11 +49,14 @@ public class GoogleSearchPageTest {
     @Test
     public  void googleSearchTest(){
         HomePage homePage = new HomePage(driver);
+        ResultsPage resultsPage = new ResultsPage(driver);
 
         driver.get(url);
         logger.info("Test Method url launch completed");
-        homePage.setTextInSearchBox("tester");
+        homePage.setTextInSearchBox("google");
         homePage.clickSearchButton();
+        resultsPage.isSearchResultPageIsVisible();
+        Assert.assertTrue(resultsPage.validateSearchResult(),"true");
     }
 
     @AfterTest

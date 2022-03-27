@@ -19,7 +19,8 @@ public class HomePage {
     }
 
 public void setTextInSearchBox(String text){
-    driver.findElement(textbox_search).sendKeys(text);
+
+        driver.findElement(textbox_search).sendKeys(text);
 }
 
 public void clickSearchButton(){
